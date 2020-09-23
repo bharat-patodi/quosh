@@ -1,0 +1,1 @@
+let bodyText = document.body.innerText
