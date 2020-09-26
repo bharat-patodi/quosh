@@ -87,3 +87,33 @@ replacer = (elem) => {
 }
 
 replacer(document.body);
+
+
+// Temporary styling
+
+let keywords = document.querySelectorAll('.keyword');
+
+keywords.forEach(val => {
+
+    // Popup
+    let popup = document.createElement('span');
+    popup.classList.add('popup');
+    val.appendChild(popup);
+
+    // Styling
+    val.style.fontWeight = "700";
+    val.style.backgroundColor = "#3498db";
+    val.style.display = "inline-block";
+    val.style.padding = "0.1rem 0.5rem";
+    val.style.color = "white";
+    val.style.position = "relative";
+
+    popup.style.position = "absolute";
+    popup.style.top = "24px";
+    popup.style.left = "0px";
+    popup.style.border = "3px solid salmon";
+    popup.innerText = "Hi, this should work";
+    popup.style.backgroundColor = "#2980b9";
+
+    // popup.style.display = "none";
+});
