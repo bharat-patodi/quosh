@@ -189,3 +189,49 @@ body {
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px; 
 }
+
+
+/* popup style */
+.keyword {
+    position: relative;
+}
+
+.keyword::before,
+.keyword::after {
+    --scale: 0;
+    --tootip-color:#2b2b2b;
+    --arrow-size: 10px;
+
+    z-index: 999999;
+    position: absolute;
+    top: -0.25rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+    transition: 200ms transform;
+    transform-origin: bottom center;
+}
+
+.keyword::before {
+    --translate-y: calc(-100% - var(--arrow-size));
+
+    content: attr(data-tooltip);
+    color: aliceblue;
+    padding: 1rem;
+    width: max-content;
+    background: var(--tootip-color);
+    border-radius: 0.3rem;
+    text-align: center;
+}
+
+.keyword:hover::before,
+.keyword:hover::after {
+    --scale: 1;
+}
+
+.keyword:hover::after {
+    --translate-y: calc(-1 * var(--arrow-size));
+    content: "";
+    border: var(--arrow-size) solid transparent;
+    border-top-color: var(--tootip-color);
+    transform-origin: top center;
+}
