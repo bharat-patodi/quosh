@@ -97,9 +97,9 @@ let keywords = document.querySelectorAll('.keyword');
 keywords.forEach(val => {
 
     // Popup
-    // let popup = document.createElement('span');
-    // popup.classList.add('popup');
-    // val.appendChild(popup);
+    let popup = document.createElement('span');
+    popup.classList.add('popup');
+    val.appendChild(popup);
 
     // Styling
     val.style.fontWeight = "700";
@@ -114,19 +114,9 @@ keywords.forEach(val => {
     // popup.style.zIndex = "99999999";
     // popup.style.left = "0px";
     // popup.style.border = "3px solid salmon";
-    // popup.innerText = "Hi, this should work";
+    popup.innerText = "Hi, this should work";
     // popup.style.backgroundColor = "#2980b9";
 
     // popup.style.opacity = "0";
-
-    // val.addEventListener("mouseup", hover);
-
-    // function hover() {
-    //   popup.style.opacity = "1";
-    //   // setTimeout(hoverOff, 1000);
-    // }
-
-    // function hoverOff() {
-    //   popup.style.opacity = "0";
-    // }
+    // popup.style.visibility = "hidden";
 });
