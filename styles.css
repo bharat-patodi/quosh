@@ -3,4 +3,47 @@ body {
     background-color: goldenrod;
 }
 
+.popup,
+.keyword::after {
+    --scale: 0;
+    --tootip-color:#2b2b2b;
+    --arrow-size: 10px;
 
+    visibility: hidden;
+    opacity: 0;
+
+    z-index: 999999;
+    position: absolute;
+    top: -0.25rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+    transition: 200ms all;
+    transform-origin: bottom center;
+}
+
+.popup {
+    --translate-y: calc(-100% - var(--arrow-size));
+    color: aliceblue;
+    padding: 1rem;
+    width: max-content;
+    max-width: 12rem;
+    background: var(--tootip-color);
+    border-radius: 0.3rem;
+    text-align: center;
+}
+
+.keyword:hover .popup,
+.keyword:hover::after {
+    --scale: 1;
+    visibility: visible;
+    opacity: 1;
+}
+
+.keyword::after {
+    --translate-y: calc(-1 * var(--arrow-size));
+
+    content: "";
+    border: var(--arrow-size) solid transparent;
+    border-top-color: var(--tootip-color);
+    transform-origin: top center;
+}
