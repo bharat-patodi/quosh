@@ -104,7 +104,7 @@ keywords.forEach(val => {
     let feedback = document.createElement('p');
     let meaning = document.createElement('h5');
     let pronounce = document.createElement('div');
-    let soundIcon = document.createElement('i');
+    let soundIcon = document.createElement('span');
     let pronounceText = document.createElement('span');
 
     feedback.classList.add('feedback');
