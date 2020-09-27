@@ -1,14 +1,8 @@
-/* fontawesome */
-@import "https://kit.fontawesome.com/bd07b7eea7.js";
 
-body {
-    background-color: goldenrod;
-}
-
-.popup,
-.keyword::after {
+.quosh__popup,
+.quosh__keyword::after {
     --scale: 0;
-    --tootip-color:#2b2b2b;
+    --tootip-border-color:#2b2b2b;
     --arrow-size: 10px;
 
     visibility: hidden;
@@ -23,66 +17,66 @@ body {
     transform-origin: bottom center;
 }
 
-.popup {
+.quosh__popup {
     --translate-y: calc(-100% - var(--arrow-size));
     color: aliceblue;
     padding: 1rem 2rem;
     width: max-content;
     max-width: 12rem;
-    background: var(--tootip-color);
+    background: #ecdbef;
     border-radius: 0.3rem;
 }
 
-.keyword:hover .popup,
-.keyword:hover::after {
+.quosh__keyword:hover .quosh__popup,
+.quosh__keyword:hover::after {
     --scale: 1;
     visibility: visible;
     opacity: 1;
 }
 
-.keyword::after {
+.quosh__keyword::after {
     --translate-y: calc(-1 * var(--arrow-size));
 
     content: "";
     border: var(--arrow-size) solid transparent;
-    border-top-color: var(--tootip-color);
+    border-top-color: var(--tootip-border-color);
     transform-origin: top center;
 }
 
 /* Feedback style */
 
-.feedback {
+.quosh__feedback {
     text-align: right;
     font-size: 0.8rem;
     cursor: pointer;
 }
 
-.feedback:hover {
+.quosh__feedback:hover {
     color:lightskyblue;
 }
 
-.meaning {
+.quosh__meaning {
     margin: 5px 0;
     font-size: 1.7rem;
 }
 
-.pronounce {
+.quosh__pronounce {
     cursor: pointer;
     display: block;
     color: lightskyblue;
     display: inline-block;
 }
 
-.pronounce span {
+.quosh__pronounce span {
     font-size: 1rem;
 }
 
-.pronounce:hover .pronounce-text {
+.quosh__pronounce:hover .quosh__pronounce-text {
     color: #fff;
     text-decoration-line: underline;
 }
 
-.volume {
+.quosh__volume {
     padding-right: 3px;
     font-size: inherit;
     color: #fff;

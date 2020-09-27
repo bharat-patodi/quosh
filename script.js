@@ -60,6 +60,11 @@ let marathi = {
   you: "आपण",
 };
 
+/*
+  Replacer function for extracting and replacing the text
+  @param: element (HTML element in which we want to replace the word)
+*/
+
 replacer = (elem) => {
   let focusText = elem.textContent;
   if (elem.hasChildNodes()) {
@@ -72,7 +77,7 @@ replacer = (elem) => {
         let secondPart = document.createElement("span");
 
         // secondPart.setAttribute("data-tooltip", `${word}`);
-        secondPart.classList.add("keyword");
+        secondPart.classList.add("quosh__keyword");
         secondPart.innerText = marathi[word];
 
         let thirdPart = focusText.substr(focusText.indexOf(word) + word.length);
@@ -80,24 +85,28 @@ replacer = (elem) => {
         elem.textContent = firstPart;
         elem.after(secondPart);
         secondPart.after(thirdPart);
-        console.log(elem.parentNode);
+        // console.log(elem.parentNode);
       }
     }
   }
 };
 
+// Function to get the key value associated with the key
+    getKeyByValue = (val, obj) => {
+      return Object.keys(obj)[Object.values(obj).indexOf(val)];
+    };
+
 replacer(document.body);
 
+// Popup Code
 
-// Temporary styling
-
-let keywords = document.querySelectorAll('.keyword');
+let keywords = document.querySelectorAll('.quosh__keyword');
 
 keywords.forEach(val => {
 
     // Popup
     let popup = document.createElement('div');
-    popup.classList.add('popup');
+    popup.classList.add('quosh__popup');
     val.appendChild(popup);
 
     let feedback = document.createElement('p');
@@ -106,11 +115,11 @@ keywords.forEach(val => {
     let soundIcon = document.createElement('span');
     let pronounceText = document.createElement('span');
 
-    feedback.classList.add('feedback');
-    meaning.classList.add('meaning');
-    pronounce.classList.add('pronounce');
-    soundIcon.classList.add("volume");
-    pronounceText.classList.add('pronounce-text');
+    feedback.classList.add('quosh__feedback');
+    meaning.classList.add('quosh__meaning');
+    pronounce.classList.add('quosh__pronounce');
+    soundIcon.classList.add("quosh__volume");
+    pronounceText.classList.add('quosh__pronounce-text');
 
     pronounce.append(soundIcon, pronounceText);
     popup.append(feedback, meaning, pronounce);
@@ -128,7 +137,12 @@ keywords.forEach(val => {
     // popup.style.zIndex = "99999999";
     // popup.style.left = "0px";
     // popup.style.border = "3px solid salmon";
-    meaning.innerText = "Government";
+
+    meaning.innerText = getKeyByValue(
+      meaning.parentElement.parentElement.innerText,
+      marathi
+    );
+    console.log(getKeyByValue(meaning.parentElement.parentElement.innerText, marathi));
     feedback.innerText = "Feedback";
     pronounceText.innerText = "Sarkar";
     soundIcon.innerText = "🔊";
@@ -137,3 +151,4 @@ keywords.forEach(val => {
     // popup.style.opacity = "0";
     // popup.style.visibility = "hidden";
 });
+
