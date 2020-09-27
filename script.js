@@ -126,10 +126,10 @@ keywords.forEach(val => {
 
     // Styling
     val.style.fontWeight = "700";
-    val.style.backgroundColor = "#3498db";
+    val.style.backgroundColor = "#ecdbef";
     val.style.display = "inline-block";
     val.style.padding = "0.1rem 0.5rem";
-    val.style.color = "white";
+    val.style.color = "#272727";
     val.style.position = "relative";
 
     // popup.style.position = "absolute";
@@ -144,7 +144,10 @@ keywords.forEach(val => {
     );
     console.log(getKeyByValue(meaning.parentElement.parentElement.innerText, marathi));
     feedback.innerText = "Feedback";
-    pronounceText.innerText = "Sarkar";
+    pronounceText.innerText = getKeyByValue(
+      meaning.parentElement.parentElement.innerText,
+      marathi
+    );
     soundIcon.innerText = "🔊";
     // popup.style.backgroundColor = "#2980b9";
 
