@@ -97,9 +97,24 @@ let keywords = document.querySelectorAll('.keyword');
 keywords.forEach(val => {
 
     // Popup
-    let popup = document.createElement('span');
+    let popup = document.createElement('div');
     popup.classList.add('popup');
     val.appendChild(popup);
+
+    let feedback = document.createElement('p');
+    let meaning = document.createElement('h5');
+    let pronounce = document.createElement('div');
+    let soundIcon = document.createElement('i');
+    let pronounceText = document.createElement('span');
+
+    feedback.classList.add('feedback');
+    meaning.classList.add('meaning');
+    pronounce.classList.add('pronounce');
+    soundIcon.classList.add("volume");
+    pronounceText.classList.add('pronounce-text');
+
+    pronounce.append(soundIcon, pronounceText);
+    popup.append(feedback, meaning, pronounce);
 
     // Styling
     val.style.fontWeight = "700";
@@ -114,7 +129,10 @@ keywords.forEach(val => {
     // popup.style.zIndex = "99999999";
     // popup.style.left = "0px";
     // popup.style.border = "3px solid salmon";
-    popup.innerText = "Hi, this should work";
+    meaning.innerText = "Government";
+    feedback.innerText = "Feedback";
+    pronounceText.innerText = "Sarkar";
+    soundIcon.innerText = "🔊";
     // popup.style.backgroundColor = "#2980b9";
 
     // popup.style.opacity = "0";

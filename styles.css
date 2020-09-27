@@ -1,3 +1,5 @@
+/* fontawesome */
+@import "https://kit.fontawesome.com/bd07b7eea7.js";
 
 body {
     background-color: goldenrod;
@@ -24,12 +26,11 @@ body {
 .popup {
     --translate-y: calc(-100% - var(--arrow-size));
     color: aliceblue;
-    padding: 1rem;
+    padding: 1rem 2rem;
     width: max-content;
     max-width: 12rem;
     background: var(--tootip-color);
     border-radius: 0.3rem;
-    text-align: center;
 }
 
 .keyword:hover .popup,
@@ -46,4 +47,43 @@ body {
     border: var(--arrow-size) solid transparent;
     border-top-color: var(--tootip-color);
     transform-origin: top center;
+}
+
+/* Feedback style */
+
+.feedback {
+    text-align: right;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.feedback:hover {
+    color:lightskyblue;
+}
+
+.meaning {
+    margin: 5px 0;
+    font-size: 1.7rem;
+}
+
+.pronounce {
+    cursor: pointer;
+    display: block;
+    color: lightskyblue;
+    display: inline-block;
+}
+
+.pronounce span {
+    font-size: 1rem;
+}
+
+.pronounce:hover span {
+    color: #fff;
+    text-decoration-line: underline;
+}
+
+.volume {
+    padding-right: 3px;
+    font-size: inherit;
+    color: #fff;
 }
