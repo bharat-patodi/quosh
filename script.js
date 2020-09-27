@@ -1,91 +1,90 @@
+// TODO: tagged template literal
 // TODO: Study recursion
 // TODO: Study nodes (we have only covered elements till now)
 // TODO: Remove data in a different file
 
-let data = {
-  temperature: "तापमान",
-  industry: "उद्योग",
-  difficult: "कठीण",
-  necessary: "आवश्यक",
-  milk: "दूध",
-  least: "किमान",
-  happy: "आनंदी",
-  month: "महिना",
-  general: "सामान्य",
-  region: "प्रदेश",
-  sudden: "अचानक",
-  brother: "भाऊ",
-  sister: "बहीण",
-  mother: "आई",
-  father: "वडील",
-  world: "जग",
-  voice: "आवाज",
-  develop: "विकसित",
-  girl: "मुलगी",
+// Count: 53
+let marathi = {
   above: "वरील",
-  event: "कार्यक्रम",
   administration: "प्रशासन",
-  management: "व्यवस्थापन",
-  law: "कायदा",
-  book: "पुस्तक",
-  search: "शोध",
-  you: "आपण",
-  what: "काय",
-  land: "जमीन",
-  national: "राष्ट्रीय",
-  training: "प्रशिक्षण",
-  education: "शिक्षण",
-  culture: "संस्कृती",
-  game: "खेळ",
-  map: "नकाशा",
-  family: "कुटुंब",
-  world: "जग",
-  work: "काम",
-  entertainment: "करमणूक",
   available: "उपलब्ध",
-  transformation: "परिवर्तन",
-  school: "शाळा",
-  president: "अध्यक्ष",
-  respect: "आदर",
-  member: "सदस्य",
-  progress: "प्रगती",
-  position: "स्थिती",
+  book: "पुस्तक",
+  brother: "भाऊ",
+  culture: "संस्कृती",
+  develop: "विकसित",
+  difficult: "कठीण",
+  education: "शिक्षण",
   employment: "रोजगार",
-  water: "पाणी",
+  entertainment: "करमणूक",
+  event: "कार्यक्रम",
+  family: "कुटुंब",
+  father: "वडील",
+  game: "खेळ",
+  general: "सामान्य",
   government: "सरकार",
+  girl: "मुलगी",
+  happy: "आनंदी",
+  industry: "उद्योग",
+  land: "जमीन",
+  law: "कायदा",
+  least: "किमान",
+  management: "व्यवस्थापन",
+  map: "नकाशा",
+  member: "सदस्य",
+  milk: "दूध",
+  month: "महिना",
+  mother: "आई",
+  national: "राष्ट्रीय",
+  necessary: "आवश्यक",
+  position: "स्थिती",
+  president: "अध्यक्ष",
+  progress: "प्रगती",
+  school: "शाळा",
+  search: "शोध",
+  sister: "बहीण",
+  sudden: "अचानक",
+  region: "प्रदेश",
+  respect: "आदर",
+  temperature: "तापमान",
+  training: "प्रशिक्षण",
+  transformation: "परिवर्तन",
+  voice: "आवाज",
+  water: "पाणी",
+  what: "काय",
+  when: "कधी",
+  why: "का",
+  where: "कुठे",
+  which: "जे",
+  work: "काम",
+  world: "जग",
+  you: "आपण",
 };
 
 replacer = (elem) => {
-    let focusText = elem.textContent;
-    let keyword = 'government';
-    let translation = "सरकार";
-    if(elem.hasChildNodes()) {
-        elem.childNodes.forEach(replacer);
-    } else if(elem.nodeType === Text.TEXT_NODE) {
-        // element.textContent = focusText.replace(/government/gi, "सरकार");
-        if (focusText.includes(keyword)) {
-        //   let focusText = focusNode.textContent;
-          let firstPart = focusText.substr(0, focusText.indexOf(keyword));
-          let secondPart = document.createElement("span");
+  let focusText = elem.textContent;
+  if (elem.hasChildNodes()) {
+    elem.childNodes.forEach(replacer);
+  } else if (elem.nodeType === Text.TEXT_NODE) {
+    // element.textContent = focusText.replace(/government/gi, "सरकार");
+    for (word in marathi) {
+      if (focusText.includes(word)) {
+        let firstPart = focusText.substr(0, focusText.indexOf(word));
+        let secondPart = document.createElement("span");
 
-          secondPart.setAttribute("data-tooltip", `${keyword}`);
-          secondPart.classList.add("keyword");
-          secondPart.innerText = translation;
+        // secondPart.setAttribute("data-tooltip", `${word}`);
+        secondPart.classList.add("keyword");
+        secondPart.innerText = marathi[word];
 
-          let thirdPart = focusText.substr(
-            focusText.indexOf(keyword) + keyword.length
-          );
+        let thirdPart = focusText.substr(focusText.indexOf(word) + word.length);
 
-          elem.textContent = firstPart;
-          elem.after(secondPart);
-          secondPart.after(thirdPart);
-          console.log(elem.parentNode);
-
-        //   elem.insertAdjacentHTML("afterend", secondPart);
-        //   secondPart.insertAdjacentText("afterend", thirdPart);
-        }
+        elem.textContent = firstPart;
+        elem.after(secondPart);
+        secondPart.after(thirdPart);
+        console.log(elem.parentNode);
+      }
     }
-}
+  }
+};
 
 replacer(document.body);
 
