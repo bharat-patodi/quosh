@@ -4,59 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modal.css">
     <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="quosh-modal">
         <div class="heading flex-between">
-            <img class="icon" src="assets/images/quosh.svg" alt="Quosh-Icon">
-            <h3 class="title">Quosh</h3>
+            <div>
+                <img class="icon" src="assets/images/quosh.svg" alt="Quosh-Icon">
+                <h1 class="title">Quosh</h1>
+            </div>
             
             <div class="close">
-                <i class="far fa-times-circle"></i>
+                <svg class=" close-button w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </div>
-            <hr class="hr-break">
         </div>
+        <hr class="hr-break">
 
         <div class="container">
+            <!-- Your Packs -->
+            <div class="your-packs">
+                <h2>Your Packs</h2>
+
+                <div class="radio-buttons">
+                    
+                    <div class="radio">
+                        <input id="radio-1" name="radio" type="radio" checked>
+                        <label for="radio-1" class="radio-label">Add Morning Pack</label>
+                    </div>
+
+                    <div class="radio">
+                        <input id="radio-2" name="radio" type="radio">
+                        <label  for="radio-2" class="radio-label">Party Pack</label>
+                    </div>
+                    
+                    <div class="radio">
+                        <input id="radio-3" name="radio" type="radio">
+                        <label  for="radio-3" class="radio-label">Party Pack</label>
+                    </div>
+                  
+                    
+                </div>
+            </div>
+            <hr class="hr-break">
+
+            <!-- Access Section -->
             <div class="allow-access">
-                <div class="button">
-                    <div>
+                <div class="toggle">
+                    <div class="button">
                         <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch1" checked>
-                    <label class="onoffswitch-label" for="myonoffswitch1">
-                        <div class="onoffswitch-inner"></div>
-                        <div class="onoffswitch-switch"></div>
-                    </label>
+                        <label class="onoffswitch-label" for="myonoffswitch1">
+                            <div class="onoffswitch-inner"></div>
+                            <div class="onoffswitch-switch"></div>
+                        </label>
                     </div>
                     
                     <div>
-                        <p class="para">
-                            Allow on youtube.com
-                        </p>
+                        <p class="para">Allow on youtube.com </p>
+                        <p class="para-desc">Translations show up on this site</p>
                     </div>
                     
                 </div>
 
-                <div class="button">
-                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch2" checked>
-                    <label class="onoffswitch-label" for="myonoffswitch2">
-                        <div class="onoffswitch-inner"></div>
-                        <div class="onoffswitch-switch"></div>
-                    </label>
+                <div class="toggle">
+                    <div class="button">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch2" checked>
+                        <label class="onoffswitch-label" for="myonoffswitch2">
+                            <div class="onoffswitch-inner"></div>
+                            <div class="onoffswitch-switch"></div>
+                        </label>
+                    </div>
+                    
                     <div>
-                        <p class="para">
-                            Extension is ON
+                        <p class="para">Extension is <span class="toggle-color">ON</span>
                         </p>
-                        <i class="fas fa-times"></i>
+                        <p class="para-desc">Translations show up by default.</p>
                     </div>
                     
                 </div>
+            </div>
+            <hr class="hr-break">
+
+            <!-- language and feedback -->
+            <div class="footer flex-between">
+                <div class="language">
+                    <img class= "icon" src="assets\images\marathi.jpg" alt="Marathi icon">
+                    <!-- <span class="circle"></span> -->
+                    <span class="lan">Marathi</span>
+                </div>
+                <div class="language">
+                    <img src="./assets/images/assamese.jpg" alt="Assamese icon">
+                    <!-- <span class="circle"></span> -->
+                    <span class="lan">Assamese</span>
+                </div>
+                <div class="language">
+                    <span class="circle"></span>
+                    <span class="lan">Feedback</span>
+                </div>
+
             </div>
         </div>
         
         
     </div>
+    <script src="modal.js"></script>
     <script src="https://kit.fontawesome.com/593a9cd241.js" crossorigin="anonymous"></script>
 </body>
 </html>
