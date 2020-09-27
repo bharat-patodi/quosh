@@ -19,7 +19,7 @@
 
 .quosh__popup {
     --translate-y: calc(-100% - var(--arrow-size));
-    color: aliceblue;
+    color: #272727;
     padding: 1rem 2rem;
     width: max-content;
     max-width: 12rem;
@@ -52,7 +52,7 @@
 }
 
 .quosh__feedback:hover {
-    color:lightskyblue;
+    color:#272727;
 }
 
 .quosh__meaning {
@@ -63,7 +63,7 @@
 .quosh__pronounce {
     cursor: pointer;
     display: block;
-    color: lightskyblue;
+    color: #272727;
     display: inline-block;
 }
 
