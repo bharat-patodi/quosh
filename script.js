@@ -98,6 +98,21 @@ replacer = (elem) => {
 
 replacer(document.body);
 
+// Pronounciation
+
+function speech(marathiWord) {
+  // console.log(marathiWord);
+  let textToSpeech = window.speechSynthesis;
+  let toSpeak = new SpeechSynthesisUtterance(marathiWord);
+  let selectedVoiceName = "Google हिन्दी";
+  [...window.speechSynthesis.getVoices()].forEach((voice)=> {
+      if (voice.name === selectedVoiceName) {
+          toSpeak.voice = voice;
+      }
+  });
+  textToSpeech.speak(toSpeak);
+}
+
 // Popup Code
 
 let keywords = document.querySelectorAll('.quosh__keyword');
@@ -123,6 +138,13 @@ keywords.forEach(val => {
 
     pronounce.append(soundIcon, pronounceText);
     popup.append(feedback, meaning, pronounce);
+
+    // Pronounciation
+    pronounce.addEventListener("click", () => {
+      let word = marathi[meaning.innerText];
+      // console.log(word);
+      speech(word);
+    });
 
     // Styling
     val.style.fontWeight = "700";
