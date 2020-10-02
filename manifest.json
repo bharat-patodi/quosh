@@ -11,11 +11,6 @@
             "css": ["styles.css"]
         }
     ],
-
-    "background": {
-        "scripts": ["background.js"],
-        "persistent": true
-    },
     "browser_action": {
         "default_popup": "modal.html"
     }
