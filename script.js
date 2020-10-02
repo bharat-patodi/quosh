@@ -101,16 +101,18 @@ replacer(document.body);
 // Pronounciation
 
 function speech(marathiWord) {
-  // console.log(marathiWord);
   let textToSpeech = window.speechSynthesis;
   let toSpeak = new SpeechSynthesisUtterance(marathiWord);
-  let selectedVoiceName = "Google हिन्दी";
-  [...window.speechSynthesis.getVoices()].forEach((voice)=> {
-      if (voice.name === selectedVoiceName) {
+  setTimeout(() => {
+    [...window.speechSynthesis.getVoices()].forEach((voice)=> {
+      if (voice.name == "Google हिन्दी") {
           toSpeak.voice = voice;
-      }
+          toSpeak.lang='hi-IN';
+          textToSpeech.speak(toSpeak);
+          // console.log(window.speechSynthesis.getVoices());
+        }
   });
-  textToSpeech.speak(toSpeak);
+  }, 5);
 }
 
 // Popup Code
@@ -141,9 +143,7 @@ keywords.forEach(val => {
 
     // Pronounciation
     pronounce.addEventListener("click", () => {
-      let word = marathi[meaning.innerText];
-      // console.log(word);
-      speech(word);
+      speech(marathi[meaning.innerText]);
     });
 
     // Styling
