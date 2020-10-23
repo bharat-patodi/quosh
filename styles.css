@@ -18,7 +18,7 @@
 .quosh__popup {
     --translate-y: calc(-100% - var(--arrow-size));
     color: #272727;
-    padding: 1rem 2rem;
+    padding: 0.5rem 2rem;
     width: max-content;
     max-width: 14rem;
     background: #ecdbef;
@@ -47,7 +47,7 @@
     text-align: right;
     font-size: 15px;
     cursor: pointer;
-    padding-bottom: 0.2rem;
+    /* padding-bottom: 0rem; */
 }
 
 .quosh__feedback:hover {
@@ -55,7 +55,7 @@
 }
 
 .quosh__meaning {
-    margin: 15px 0;
+    margin: 5px 0 12px 0;
     font-size: 1.7rem;
 }
 

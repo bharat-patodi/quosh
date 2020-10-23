@@ -1,6 +1,6 @@
 let closeButton = document.querySelector('.close-button');
 let quoshModal = document.querySelector(".quosh-modal")
-let allTabsAccessPermission = document.getElementById("checkbox-2");
+// let allTabsAccessPermission = document.getElementById("checkbox-2");
 let radioThree = document.getElementById('radio-3')
 
 function handleClose(){
@@ -9,49 +9,122 @@ function handleClose(){
 closeButton.addEventListener('click', handleClose);
 
 
-// function handlePermission(){
-//     console.log("button clicked")
-//     chrome.tabs.query({}, function(tabs) {
-//         console.log(tabs)
-//         tabs.forEach(tb => {
-//             console.log(tb.id)       
-//             chrome.tabs.sendMessage(tb.id, {'message': "allowAccess"})
-//         })
-//     })
-
-// }
 
 
+// New
 
-// accessPermission.addEventListener('click', handlePermission);
-
-// document.addEventListener("DOMContentLoaded", function() {
-//     accessPermission.addEventListener("click", handlePermission);
-//   });
-
-
-
-
-
-
-function handleAllTabsPermission(event) {
-  console.dir(event)
-  if (document.querySelector("#checkbox-2").checked == true) {
-    console.log("working if")
-    chrome.tabs.query({}, tabs => {
-      tabs.forEach(tab => 
-        chrome.tabs.sendMessage(tab.id, {'msg' : "allowAccessToAllTabs"})
-      );
+function toggle () 
+{
+	var checkBox = document.querySelector("#checkbox-2");
+	var active = document.getElementById("active");
+	var inactive = document.getElementById("inactive");
+	
+	var check = checkBox.checked;
+		
+	chrome.storage.local.set({'toggle': check}, function() 
+	{
+        if (chrome.extension.lastError) 
+		{
+            alert('An error occurred: ' + chrome.extension.lastError.message);
+        }
     });
-  }else{
-    return false;
-  }
- 
-};
+		
+	if(check == true)
+	{
+		inactive.style.display = "none";
+		active.style.display = "block";
+		// chrome.tabs.query({active: true, currentWindow: true}, function(tabs) 
+		// {
+		// 	chrome.tabs.sendMessage(tabs[0].id, {greeting: "active"}, function(response) 
+		// 	{
+		// 		console.log(response.farewell);
+		// 	});
+		// });
 
-// handleAllTabsPermission();
+		chrome.tabs.query({}, tabs => {
+			tabs.forEach(tab => 
+			  chrome.tabs.sendMessage(tab.id, {greeting: "active"}), function(response) 
+			  	{
+			  		console.log(response.farewell);
+			  	}
+			);
+		});
+	}
+	else
+	{
+		inactive.style.display = "block";
+		active.style.display = "none";
+		// chrome.tabs.query({active: true, currentWindow: true}, function(tabs) 
+		// {
+		// 	chrome.tabs.sendMessage(tabs[0].id, {greeting: "inactive"}, function(response) 
+		// 	{
+		// 		console.log(response.farewell);
+		// 	});
+		// });
+		chrome.tabs.query({}, tabs => {
+			tabs.forEach(tab => 
+			  chrome.tabs.sendMessage(tab.id, {greeting: "inactive"}), function(response) 
+			  	{
+			  		console.log(response.farewell);
+			  	}
+			);
+		});
+	}
+}
 
-// export {handleAllTabsPermission};
+function afterLoaded()
+{
+	document.querySelector('#checkbox-2').addEventListener("click", toggle);
+	
+	var checkBox = document.querySelector("#checkbox-2");
+	var active = document.getElementById("active");
+	var inactive = document.getElementById("inactive");
+	
+	chrome.storage.local.get('toggle', function(result)
+	{
+		var check = result.toggle;
+		if(check == true)
+		{
+			inactive.style.display = "none";
+			active.style.display = "block";
+			checkBox.checked =  true;
+
+		}
+		else
+		{
+			inactive.style.display = "block";
+			active.style.display = "none";
+			checkBox.checked = false;
+
+		}
+	});
+}
+
+if(document.readyState === 'loading') 
+{
+    document.addEventListener('DOMContentLoaded', afterLoaded);
+} 
+else 
+{
+    afterLoaded();
+}
 
 
-allTabsAccessPermission.addEventListener("change", handleAllTabsPermission);
+
+// OLD ONE
+// function handleAllTabsPermission(event) {
+//   console.dir(event)
+//   if (document.querySelector("#checkbox-2").checked == true) {
+//     console.log("if working target.checked = true")
+//     chrome.tabs.query({}, tabs => {
+//       tabs.forEach(tab => 
+//         chrome.tabs.sendMessage(tab.id, {'msg' : "allowAccessToAllTabs"})
+//       );
+//     });
+//   }else if (document.querySelector("#checkbox-2").checked == false) {
+//     console.log("else if working target.checked = false")
+//   }
+// }   
+  
+
+// allTabsAccessPermission.addEventListener("change", handleAllTabsPermission);

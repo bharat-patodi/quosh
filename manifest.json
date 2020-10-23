@@ -1,18 +1,47 @@
-{
-  "name": "Quosh",
-  "description": "Base Level Extension",
-  "permissions": ["storage", "tabs"],
-  "version": "1.0",
-  "manifest_version": 2,
-   "content_scripts": [
-       {
-           "matches": ["<all_urls>"],
-            "js": ["script.js"],
-            "css": ["styles.css"]
-        }
-    ],
-    "browser_action": {
-        "default_popup": "modal.html"
-    }
+// {
+//   "name": "Quosh",
+//   "description": "Base Level Extension",
+//   "permissions": ["storage", "tabs", "activeTab"],
+//   "version": "1.0",
+//   "manifest_version": 2,
+//    "content_scripts": [
+//        {
+//            "matches": ["<all_urls>"],
+//             "js": ["script.js"],
+//             "css": ["styles.css"]
+//         }
+//     ],
+//     "background" : {
+//         "scripts": ["background.js"]
+//     },
+//     "browser_action": {
+//         "default_popup": "modal.html"
+//     }
 
-}
+// }
+
+
+{
+    "name": "Quosh",
+    "description": "Base Level Extension",
+    "permissions": ["storage", "tabs", "activeTab","background"],
+    "version": "1.0",
+    "manifest_version": 2,
+     "content_scripts": [
+         {
+             "matches": ["<all_urls>"],
+              "js": ["script.js"],
+              "css": ["styles.css"]
+          }
+      ],
+      "background" : {
+          "scripts": ["background.js"],
+          "persistent": false
+      },
+      "browser_action": {
+          "default_popup": "modal.html"
+      },
+  
+      "web_accessible_resources": ["modal.css"]
+  
+  }
