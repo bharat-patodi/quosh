@@ -2,6 +2,7 @@ function reload() {
   console.log("script.js working")
 	// Count: 53
 	let marathi = {
+		
 		above: "वरील",
 		administration: "प्रशासन",
 		available: "उपलब्ध",
@@ -54,8 +55,16 @@ function reload() {
 		which: "जे",
 		work: "काम",
 		world: "जग",
-		you: "आपण",
-		your: "आपले"
+		you: "तू",
+		your: "तुझा",
+		struggle: "संघर्ष",
+		experience: "अनुभव",
+		difficult: "कठीण",
+		name: "नाव",
+		mistake: "चूक",
+		people: "लोक",
+		because: "कारण",
+		language: "भाषा"
 		};
 	
 		/*

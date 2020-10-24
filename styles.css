@@ -1,83 +1,151 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/*  
+
+: value;
+     display: value;
+     width: value; 
+     height: value;
+     border: value;
+     margin: value;
+     padding: value; */
+
+/* ============================== */
 .quosh__popup,
 .quosh__keyword::after {
-    --scale: 0;
-    --tootip-border-color:#2b2b2b;
-    --arrow-size: 10px;
-    visibility: hidden;
-    opacity: 0;
-    z-index: 999999;
-    position: absolute;
-    top: -0.25rem;
-    left: 50%;
-    transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
-    transition: 200ms all;
-    transform-origin: bottom center;
+    --scale: 0 !important;
+    --tootip-border-color:#2b2b2b !important;
+    --arrow-size: 10px !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    z-index: 999999 !important;
+    position: absolute !important;
+    top: -0.25rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale)) !important;
+    transition: 200ms all !important;
+    transform-origin: bottom center !important;
 }
 
 .quosh__popup {
-    --translate-y: calc(-100% - var(--arrow-size));
-    color: #272727;
-    padding: 0.5rem 2rem;
-    width: max-content;
-    max-width: 14rem;
-    background: #ecdbef;
-    border-radius: 0.3rem;
+    --translate-y: calc(-100% - var(--arrow-size)) !important;
+    color: #272727 !important;
+    padding: 0.5rem 1rem !important;
+    width: max-content !important;
+    max-width: 14rem !important;
+    background: #ecdbef !important;
+    border-radius: 0.3rem !important;
 }
 
 .quosh__keyword:hover .quosh__popup,
 .quosh__keyword:hover::after {
-    --scale: 1;
-    visibility: visible;
-    opacity: 1;
-    font-size: 0.8rem;
+    --scale: 1 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-size: 0.8rem !important;
 }
 
 .quosh__keyword::after {
-    --translate-y: calc(-1 * var(--arrow-size));
-    content: "";
-    border: var(--arrow-size) solid transparent;
-    border-top-color: var(--tootip-border-color);
-    transform-origin: top center;
+    --translate-y: calc(-1 * var(--arrow-size)) !important;
+    content: "" !important;
+    border: var(--arrow-size) solid transparent !important;
+    border-top-color: var(--tootip-border-color) !important;
+    transform-origin: top center !important;
 }
 
 /* Feedback style */
 
 .quosh__feedback {
-    text-align: right;
-    font-size: 15px;
-    cursor: pointer;
+    text-align: right !important;
+    font-size: 15px !important;
+    font-weight: 200 !important;
+    cursor: pointer !important;
+    margin: 0 0 0.2rem 0 !important;
+
     /* padding-bottom: 0rem; */
 }
 
 .quosh__feedback:hover {
-    color:#272727;
+    color:#272727 !important;
 }
 
 .quosh__meaning {
-    margin: 5px 0 12px 0;
-    font-size: 1.7rem;
+    margin: 5px 10px 5px 0 !important;
+    padding: 0px !important;
+    font-size: 1.7rem !important;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+    line-height: normal !important;
+    font-weight: 500 !important;
+    color: #272727 !important;
 }
 
 .quosh__pronounce {
-    cursor: pointer;
-    display: block;
-    color: #272727;
-    display: inline-block;
+    cursor: pointer !important;
+    display: block !important;
+    color: #272727 !important;
+    display: inline-block !important;
 
 }
 
 .quosh__pronounce span {
-    font-size: 1rem;
+    font-size: 1rem !important;
 }
 
 .quosh__pronounce:hover .quosh__pronounce-text {
-    color: #fff;
-    text-decoration-line: underline;
+    color: #fff !important;
+    text-decoration-line: underline !important;
 }
 
 .quosh__volume {
-    padding-right: 3px;
-    font-size: inherit;
-    color: #fff;
+    padding-right: 3px !important;
+    font-size: inherit !important;
+    color: #fff !important;
 }

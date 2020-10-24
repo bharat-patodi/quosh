@@ -1,6 +1,5 @@
 let closeButton = document.querySelector('.close-button');
 let quoshModal = document.querySelector(".quosh-modal")
-// let allTabsAccessPermission = document.getElementById("checkbox-2");
 let radioThree = document.getElementById('radio-3')
 
 function handleClose(){
@@ -15,7 +14,7 @@ closeButton.addEventListener('click', handleClose);
 
 function toggle () 
 {
-	var checkBox = document.querySelector("#checkbox-2");
+	var checkBox = document.querySelector("#checkbox");
 	var active = document.getElementById("active");
 	var inactive = document.getElementById("inactive");
 	
@@ -33,13 +32,6 @@ function toggle ()
 	{
 		inactive.style.display = "none";
 		active.style.display = "block";
-		// chrome.tabs.query({active: true, currentWindow: true}, function(tabs) 
-		// {
-		// 	chrome.tabs.sendMessage(tabs[0].id, {greeting: "active"}, function(response) 
-		// 	{
-		// 		console.log(response.farewell);
-		// 	});
-		// });
 
 		chrome.tabs.query({}, tabs => {
 			tabs.forEach(tab => 
@@ -54,13 +46,6 @@ function toggle ()
 	{
 		inactive.style.display = "block";
 		active.style.display = "none";
-		// chrome.tabs.query({active: true, currentWindow: true}, function(tabs) 
-		// {
-		// 	chrome.tabs.sendMessage(tabs[0].id, {greeting: "inactive"}, function(response) 
-		// 	{
-		// 		console.log(response.farewell);
-		// 	});
-		// });
 		chrome.tabs.query({}, tabs => {
 			tabs.forEach(tab => 
 			  chrome.tabs.sendMessage(tab.id, {greeting: "inactive"}), function(response) 
@@ -74,9 +59,9 @@ function toggle ()
 
 function afterLoaded()
 {
-	document.querySelector('#checkbox-2').addEventListener("click", toggle);
+	document.querySelector('#checkbox').addEventListener("click", toggle);
 	
-	var checkBox = document.querySelector("#checkbox-2");
+	var checkBox = document.querySelector("#checkbox");
 	var active = document.getElementById("active");
 	var inactive = document.getElementById("inactive");
 	
