@@ -2,7 +2,7 @@ function reload() {
   console.log("script.js working")
 	// Count: 53
 	let marathi = {
-		
+
 		above: "वरील",
 		administration: "प्रशासन",
 		available: "उपलब्ध",
@@ -66,12 +66,12 @@ function reload() {
 		because: "कारण",
 		language: "भाषा"
 		};
-	
+
 		/*
 		Replacer function for extracting and replacing the text
 		@param: element (HTML element in which we want to replace the word)
 		*/
-	
+
 		replacer = (elem) => {
 			let focusText = elem.textContent;
 			if (elem.hasChildNodes()) {
@@ -82,13 +82,13 @@ function reload() {
 				if (focusText.includes(word)) {
 					let firstPart = focusText.substr(0, focusText.indexOf(word));
 					let secondPart = document.createElement("span");
-		
+
 					// secondPart.setAttribute("data-tooltip", `${word}`);
 					secondPart.classList.add("quosh__keyword");
 					secondPart.innerText = marathi[word];
-		
+
 					let thirdPart = focusText.substr(focusText.indexOf(word) + word.length);
-		
+
 					elem.textContent = firstPart;
 					elem.after(secondPart);
 					secondPart.after(thirdPart);
@@ -97,16 +97,16 @@ function reload() {
 				}
 			}
 		};
-	
+
 		// Function to get the key value associated with the key
 			getKeyByValue = (val, obj) => {
 			return Object.keys(obj)[Object.values(obj).indexOf(val)];
 			};
-	
+
 		replacer(document.body);
-	
+
 		// Pronounciation
-	
+
 		function speech(marathiWord) {
 			let textToSpeech = window.speechSynthesis;
 			let toSpeak = new SpeechSynthesisUtterance(marathiWord);
@@ -121,38 +121,38 @@ function reload() {
 			});
 			}, 5);
 		}
-	
+
 		// Popup Code
-	
+
 		let keywords = document.querySelectorAll('.quosh__keyword');
-	
+
 		keywords.forEach(val => {
-	
+
 			// Popup
 			let popup = document.createElement('div');
 			popup.classList.add('quosh__popup');
 			val.appendChild(popup);
-	
+
 			let feedback = document.createElement('p');
 			let meaning = document.createElement('h5');
 			let pronounce = document.createElement('div');
 			let soundIcon = document.createElement('span');
 			let pronounceText = document.createElement('span');
-	
+
 			feedback.classList.add('quosh__feedback');
 			meaning.classList.add('quosh__meaning');
 			pronounce.classList.add('quosh__pronounce');
 			soundIcon.classList.add("quosh__volume");
 			pronounceText.classList.add('quosh__pronounce-text');
-	
+
 			pronounce.append(soundIcon, pronounceText);
 			popup.append(feedback, meaning, pronounce);
-	
+
 			// Pronounciation
 			pronounce.addEventListener("click", () => {
 			speech(marathi[meaning.innerText]);
 			});
-	
+
 			// Styling
 			val.style.fontWeight = "700";
 			val.style.backgroundColor = "#ecdbef";
@@ -160,18 +160,11 @@ function reload() {
 			val.style.padding = "0.1rem 0.5rem";
 			val.style.color = "#272727";
 			val.style.position = "relative";
-	
-			// popup.style.position = "absolute";
-			// popup.style.top = "24px";
-			// popup.style.zIndex = "99999999";
-			// popup.style.left = "0px";
-			// popup.style.border = "3px solid salmon";
-	
+
 			meaning.innerText = getKeyByValue(
 			meaning.parentElement.parentElement.innerText,
 			marathi
 			);
-			// console.log(getKeyByValue(meaning.parentElement.parentElement.innerText, marathi));
 			feedback.innerText = "Feedback";
 			pronounceText.innerText = getKeyByValue(
 			meaning.parentElement.parentElement.innerText,
@@ -179,11 +172,11 @@ function reload() {
 			);
 			soundIcon.innerText = "🔊";
 			// popup.style.backgroundColor = "#2980b9";
-	
+
 			// popup.style.opacity = "0";
 			// popup.style.visibility = "hidden";
 		});
-		
+
 }
 
 
@@ -194,17 +187,17 @@ function refresh()
 		var check = result.refresh;
 		if(check == true)
 		{
-			chrome.storage.local.set({'refresh': false}, function() 
+			chrome.storage.local.set({'refresh': false}, function()
 			{
-				if (chrome.extension.lastError) 
+				if (chrome.extension.lastError)
 				{
 					alert('An error occurred: ' + chrome.extension.lastError.message);
 				}
 			});
-					
+
 			window.location.href = window.location.href;
 		}
-	});	
+	});
 }
 
 function togglePlugin()
@@ -219,12 +212,12 @@ function togglePlugin()
 		{
 			refresh();
 		}
-	});	
+	});
 }
 
-	
 
-function messageHandler(request, sender, sendResponse) 
+
+function messageHandler(request, sender, sendResponse)
 {
 	if (request.greeting == "active")
 	{
@@ -235,10 +228,10 @@ function messageHandler(request, sender, sendResponse)
 	{
 		sendResponse({farewell: "deactivated"});
 		togglePlugin();
-		
-		chrome.storage.local.set({'refresh': true}, function() 
+
+		chrome.storage.local.set({'refresh': true}, function()
 		{
-			if (chrome.extension.lastError) 
+			if (chrome.extension.lastError)
 			{
 				alert('An error occurred: ' + chrome.extension.lastError.message);
 			}
@@ -252,11 +245,11 @@ function afterLoaded()
 	togglePlugin();
 }
 
-if(document.readyState === 'loading') 
+if(document.readyState === 'loading')
 {
     document.addEventListener('DOMContentLoaded', afterLoaded);
-} 
-else 
+}
+else
 {
     afterLoaded();
 }
