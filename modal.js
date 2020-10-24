@@ -1,9 +1,7 @@
 let closeButton = document.querySelector('.close-button');
-let quoshModal = document.querySelector(".quosh-modal")
-let radioThree = document.getElementById('radio-3')
 
 function handleClose(){
-    quoshModal.style.display = "none";
+	window.close();
 }
 closeButton.addEventListener('click', handleClose);
 
@@ -94,22 +92,3 @@ else
     afterLoaded();
 }
 
-
-
-// OLD ONE
-// function handleAllTabsPermission(event) {
-//   console.dir(event)
-//   if (document.querySelector("#checkbox-2").checked == true) {
-//     console.log("if working target.checked = true")
-//     chrome.tabs.query({}, tabs => {
-//       tabs.forEach(tab => 
-//         chrome.tabs.sendMessage(tab.id, {'msg' : "allowAccessToAllTabs"})
-//       );
-//     });
-//   }else if (document.querySelector("#checkbox-2").checked == false) {
-//     console.log("else if working target.checked = false")
-//   }
-// }   
-  
-
-// allTabsAccessPermission.addEventListener("change", handleAllTabsPermission);
