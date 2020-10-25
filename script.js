@@ -1,8 +1,7 @@
 function reload() {
-  console.log("script.js working")
+	console.log("script.js working")
 	// Count: 53
 	let marathi = {
-
 		above: "वरील",
 		administration: "प्रशासन",
 		available: "उपलब्ध",
@@ -65,38 +64,35 @@ function reload() {
 		people: "लोक",
 		because: "कारण",
 		language: "भाषा"
-		};
+	};
 
-		/*
-		Replacer function for extracting and replacing the text
-		@param: element (HTML element in which we want to replace the word)
-		*/
+	/*
+	Replacer function for extracting and replacing the text
+	@param: element (HTML element in which we want to replace the word)
+	*/
 
-		replacer = (elem) => {
-			let focusText = elem.textContent;
-			if (elem.hasChildNodes()) {
-				elem.childNodes.forEach(replacer);
-			} else if (elem.nodeType === Text.TEXT_NODE) {
-				// element.textContent = focusText.replace(/government/gi, "सरकार");
-				for (word in marathi) {
-				if (focusText.includes(word)) {
-					let firstPart = focusText.substr(0, focusText.indexOf(word));
-					let secondPart = document.createElement("span");
+	const replacer = (elem) => {
+		let focusText = elem.textContent;
+		if (elem.hasChildNodes()) {
+			elem.childNodes.forEach(replacer);
+		} else if (elem.nodeType === Text.TEXT_NODE) {
+			for (word in marathi) {
+			if (focusText.includes(word)) {
+				let firstPart = focusText.substr(0, focusText.indexOf(word));
+				let secondPart = document.createElement("span");
 
-					// secondPart.setAttribute("data-tooltip", `${word}`);
-					secondPart.classList.add("quosh__keyword");
-					secondPart.innerText = marathi[word];
+				secondPart.classList.add("quosh__keyword");
+				secondPart.innerText = marathi[word];
 
-					let thirdPart = focusText.substr(focusText.indexOf(word) + word.length);
+				let thirdPart = focusText.substr(focusText.indexOf(word) + word.length);
 
-					elem.textContent = firstPart;
-					elem.after(secondPart);
-					secondPart.after(thirdPart);
-					// console.log(elem.parentNode);
-				}
-				}
+				elem.textContent = firstPart;
+				elem.after(secondPart);
+				secondPart.after(thirdPart);
 			}
-		};
+		}
+	}
+};
 
 		// Function to get the key value associated with the key
 			getKeyByValue = (val, obj) => {
@@ -160,23 +156,13 @@ function reload() {
 			val.style.padding = "0.1rem 0.5rem";
 			val.style.color = "#272727";
 			val.style.position = "relative";
-			val.style.cursor = "pointer"
-			meaning.innerText = getKeyByValue(
-			meaning.parentElement.parentElement.innerText,
-			marathi
-			);
+			val.style.cursor = "pointer";
+
+			meaning.innerText = getKeyByValue(meaning.parentElement.	parentElement.innerText, marathi);
 			feedback.innerText = "Feedback";
-			pronounceText.innerText = getKeyByValue(
-			meaning.parentElement.parentElement.innerText,
-			marathi
-			);
+			pronounceText.innerText = getKeyByValue(meaning.			parentElement.parentElement.innerText, marathi);
 			soundIcon.innerText = "🔊";
-			// popup.style.backgroundColor = "#2980b9";
-
-			// popup.style.opacity = "0";
-			// popup.style.visibility = "hidden";
 		});
-
 }
 
 
@@ -239,17 +225,13 @@ function messageHandler(request, sender, sendResponse)
 	}
 }
 
-function afterLoaded()
-{
+function afterLoaded() {
 	chrome.runtime.onMessage.addListener(messageHandler);
 	togglePlugin();
 }
 
-if(document.readyState === 'loading')
-{
+if(document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', afterLoaded);
-}
-else
-{
+} else {
     afterLoaded();
 }
