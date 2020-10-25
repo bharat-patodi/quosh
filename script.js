@@ -160,7 +160,7 @@ function reload() {
 			val.style.padding = "0.1rem 0.5rem";
 			val.style.color = "#272727";
 			val.style.position = "relative";
-
+			val.style.cursor = "pointer"
 			meaning.innerText = getKeyByValue(
 			meaning.parentElement.parentElement.innerText,
 			marathi

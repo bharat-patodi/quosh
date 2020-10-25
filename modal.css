@@ -278,4 +278,9 @@ a {
 .quosh__modal__toggle--ON {
   font-weight: 700;
   color: var(--primary-color);
+  display: block;
+}
+
+.quosh__modal__toggle--OFF {
+  display: none;
 }
