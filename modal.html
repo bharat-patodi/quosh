@@ -8,38 +8,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="quosh-modal">
-        <div class="heading flex-between">
+    <div class="quosh__modal">
+        <div class="quosh__modal__heading flex-between">
             <div>
-                <img class="icon" src="assets/images/quosh.svg" alt="Quosh-Icon">
-                <h1 class="title">Quosh</h1>
+                <img class="quosh__icon" src="assets/images/quosh.svg" alt="Quosh Logo">
+                <h1 class="quosh__modal__title">Quosh</h1>
             </div>
-            
-            <div class="close">
-                <svg class="close-button w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+
+            <div class="quosh__modal__close">
+                <svg class="quosh__modal__close__button w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </div>
         </div>
-        <hr class="hr-break">
+
+        <hr class="quosh__modal__hr">
 
         <div class="container">
-                <div class="toggle-button">
-                    <div class="button">
-                        <input type="checkbox" name="checkbox" class="checkbox" id="checkbox" checked>
-                        <label for="checkbox" class="label">
-                            <div class="ball"></div>
-                        </label>
-                    </div>
-                    
-                    <div>
-                        <p class="para" id="active">Extension is ON</p>
-                        <p class="para" id="inactive">Extension is OFF</p>  
-                    </div>
-                    
+            <div class="quosh__modal__toggle">
+                <div class="quosh__modal__toggle__button">
+                    <input type="checkbox" name="checkbox"  id="quosh__modal__toggle__checkbox" checked>
+                    <label for="quosh__modal__toggle__checkbox" class="quosh__modal__toggle__label">
+                        <div class="quosh__toggle__ball"></div>
+                    </label>
                 </div>
+
+                <div>
+                    <p class="quosh__modal__toggle--ON" id="active">Extension is ON</p>
+                    <p class="quosh__modal__toggle--OFF" id="inactive">Extension is OFF</p>
+                </div>
+
             </div>
         </div>
-        
-        
+
     </div>
     <script src="modal.js"></script>
 </body>

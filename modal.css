@@ -1,28 +1,96 @@
 :root {
-    --bg-color:  #ecdbef;
-    --primary-color: #3c1b42;
-    /* --hightlight-color:#e5beed; */
-    --text-color: #272727;
-    /* #3c709c */
+  --bg-color: #ecdbef;
+  --primary-color: #3c1b42;
+  /* --hightlight-color:#e5beed; */
+  --text-color: #272727;
+  /* #3c709c */
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 2. v2.0 | 20110126
   License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -31,29 +99,41 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
 body {
   line-height: 1;
 }
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
-blockquote, q {
+blockquote,
+q {
   quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
   content: none;
 }
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
 
 /*
 =============================================================
@@ -68,141 +148,134 @@ Custom styles
 }
 
 .flex-between {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-
 body {
-    font-family: 'Karla', sans-serif;
-    /* background-color: goldenrod; */
-    background-color: var(--bg-color);
-    font-size: 1rem;
+  font-family: "Karla", sans-serif;
+  /* background-color: goldenrod; */
+  background-color: var(--bg-color);
+  font-size: 1rem;
 }
 
 a {
-    display: inline-block;
-    text-decoration: none;
+  display: inline-block;
+  text-decoration: none;
 }
 
-.quosh-modal {
-    min-width: 240px;
+.quosh__modal {
+  min-width: 240px;
 }
 
-.heading {
-    padding: 16px;
-    width: 100%;
+.quosh__modal__heading {
+  padding: 16px;
+  width: 100%;
 }
 
-.icon {
-    height: 13px;
-    padding-right: 0.3rem;
+.quosh__icon {
+  height: 13px;
+  padding-right: 0.3rem;
 }
 
-.title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    /* color: #365d37; */
-    color: var(--primary-color);
-    display: inline-block;
+.quosh__modal__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  /* color: #365d37; */
+  color: var(--primary-color);
+  display: inline-block;
 }
 
-.close {
-    cursor: pointer;
+.quosh__modal__close {
+  cursor: pointer;
 }
 
-.close-button {
-    color: rgb(158 135 135);
-    width: 20px;
+.quosh__modal__close__button {
+  color: rgb(158 135 135);
+  width: 20px;
 }
 
-.hr-break {
-    width: 100%;
-    height: 1px;
-    opacity: 0.5;
-    border-top: 1px solid rgb(105 91 91);
-    margin: 0px;
+.quosh__modal__hr {
+  width: 100%;
+  height: 1px;
+  opacity: 0.5;
+  border-top: 1px solid rgb(105 91 91);
+  margin: 0px;
 }
 
 .container {
-    padding: 0 16px;
-    width: 100%;
+  padding: 0 16px;
+  width: 100%;
 }
 
-h2 {
-    color: var(--text-color);
-    font-weight: 700;
-    font-size: 1rem;
-}
+/* h2 {
+  color: var(--text-color);
+  font-weight: 700;
+  font-size: 1rem;
+} */
 
 /* toggle Permission*/
 
-.toggle-button {
-    display: flex;
-    margin: 1rem 0;
+.quosh__modal__toggle {
+  display: flex;
+  margin: 1rem 0;
 }
-.button {
-    position: relative;
-    margin-right: 1rem;
-}
-
-
-.checkbox {
-    opacity: 0;
-    position: absolute;
+.quosh__modal__toggle__button {
+  position: relative;
+  margin-right: 1rem;
 }
 
-.checkbox:checked + .label {
-    background-color: var(--primary-color);
+#quosh__modal__toggle__checkbox {
+  opacity: 0;
+  position: absolute;
 }
 
-
-
-.label {
-    background-color: #999999;
-    display: flex;
-    width: 60px;
-    height: 30px;
-    border-radius: 20px;
-    align-items: center;
-    padding: 5px;
-    position: relative;
-
+#quosh__modal__toggle__checkbox:checked + .quosh__modal__toggle__label {
+  background-color: var(--primary-color);
 }
 
-.ball {
-    width: 27px;
-    height: 25px;
-    border-radius: 20px;
-    background-color: #fff;
-    position: absolute;
-    top: 2px;
-    left: 3px;
-    transition: transform 0.2s linear;
+.quosh__modal__toggle__label {
+  background-color: #999999;
+  display: flex;
+  width: 60px;
+  height: 30px;
+  border-radius: 20px;
+  align-items: center;
+  padding: 5px;
+  position: relative;
 }
 
-.checkbox:checked + .label .ball {
-	transform: translateX(24px);
+.quosh__toggle__ball {
+  width: 27px;
+  height: 25px;
+  border-radius: 20px;
+  background-color: #fff;
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  transition: transform 0.2s linear;
 }
 
-.para {
-    text-overflow: ellipsis;
-    color: var(--text-color);
-    line-height: 1.8;
-    font-weight: 700;
+#quosh__modal__toggle__checkbox:checked
+  + .quosh__modal__toggle__label
+  .quosh__toggle__ball {
+  transform: translateX(24px);
 }
 
-.para-desc {
-    color: rgb(97 78 78);
-    
+.quosh__modal__toggle--ON,
+.quosh__modal__toggle--OFF {
+  text-overflow: ellipsis;
+  color: var(--text-color);
+  line-height: 1.8;
+  /* font-weight: 700; */
 }
 
-.active {
-    font-weight: 700;
-    color: var(--primary-color);
+/* .para-desc {
+  color: rgb(97 78 78);
+} */
+
+.quosh__modal__toggle--ON {
+  font-weight: 700;
+  color: var(--primary-color);
 }
-
-
-
-
