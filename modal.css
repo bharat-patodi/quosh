@@ -1,138 +1,9 @@
 :root {
-  --bg-color: #ecdbef;
-  --primary-color: #3c1b42;
+  --quosh-bg-color: #ecdbef;
+  --quosh-primary-color: #3c1b42;
   /* --hightlight-color:#e5beed; */
-  --text-color: #272727;
+  --quosh-text-color: #272727;
   /* #3c709c */
-}
-
-/* http://meyerweb.com/eric/tools/css/reset/ 2. v2.0 | 20110126
-  License: none (public domain)
-*/
-
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol,
-ul {
-  list-style: none;
-}
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
 }
 
 /*
@@ -156,7 +27,7 @@ Custom styles
 body {
   font-family: "Karla", sans-serif;
   /* background-color: goldenrod; */
-  background-color: var(--bg-color);
+  background-color: var(--quosh-bg-color);
   font-size: 1rem;
 }
 
@@ -183,7 +54,7 @@ a {
   font-size: 1.2rem;
   font-weight: 700;
   /* color: #365d37; */
-  color: var(--primary-color);
+  color: var(--quosh-primary-color);
   display: inline-block;
 }
 
@@ -232,7 +103,7 @@ a {
 }
 
 #quosh__modal__toggle__checkbox:checked + .quosh__modal__toggle__label {
-  background-color: var(--primary-color);
+  background-color: var(--quosh-primary-color);
 }
 
 .quosh__modal__toggle__label {
@@ -266,7 +137,7 @@ a {
 .quosh__modal__toggle--ON,
 .quosh__modal__toggle--OFF {
   text-overflow: ellipsis;
-  color: var(--text-color);
+  color: var(--quosh-text-color);
   line-height: 1.8;
   /* font-weight: 700; */
 }
@@ -277,7 +148,7 @@ a {
 
 .quosh__modal__toggle--ON {
   font-weight: 700;
-  color: var(--primary-color);
+  color: var(--quosh-primary-color);
   display: block;
 }
 
